@@ -8,7 +8,7 @@
 </head>
 <body>
 <div class="login-container">
-    <form class="login-form" action="#" method="post">
+    <form class="login-form">
         <h2>Login</h2>
         <div class="input-group">
             <label for="username">Usuario</label>
@@ -19,10 +19,11 @@
             <input type="password" id="password" name="password" required>
         </div>
         <button type="submit" id="login">Iniciar sesión</button>
+        <button onclick="alerta()">Mostrar alerta</button>
         <a th:href="@{/signup}">Regístrate ahora</a>
     </form>
-    <button type="submit" id="alerta">Mostrar alerta</button>
 </div>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 <script th:src="@{/js/login.js}" rel="javascript"></script>
 </body>
 </html>

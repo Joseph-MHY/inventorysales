@@ -22,13 +22,13 @@ public class UserInputDTO {
     private BigDecimal salary;
     private String emailUser;
     private String gender;
-    private IdentityDocuments idTypeDocument;
+    private IdentityDocumentsInputDTO TypeDocument;
     private String numDocument;
     private Boolean state;
     private String telephone;
     private String mobile;
     private String username;
     private String password;
-    private Roles idRole;
+    private RolesInputDTO Role;
     private Date creationDate;
 }
