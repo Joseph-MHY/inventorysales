@@ -1,17 +1,12 @@
 package com.sale.pointsale.controller;
 
-import com.sale.pointsale.models.DTO.input.UserInputDTO;
-import com.sale.pointsale.models.DTO.output.UserOutputDTO;
-import com.sale.pointsale.service.UserService;
-import com.sale.pointsale.service.impl.UserServiceImpl;
+import com.sale.pointsale.domain.Users.UserInputDTO;
+import com.sale.pointsale.domain.Users.UserOutputDTO;
+import com.sale.pointsale.domain.Users.UserServiceImpl;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/users")
@@ -21,8 +16,8 @@ public class UsuarioController {
     private UserServiceImpl userService;
 
     @PostMapping("/print")
-    public ResponseEntity<UserInputDTO> print(@Valid @RequestBody UserOutputDTO userOutputDTO) {
-        UserInputDTO user = userService.printUser(userOutputDTO);
-        return new ResponseEntity<>(user, HttpStatus.OK);
+    @ResponseStatus(HttpStatus.CREATED)
+    public UserInputDTO print(@Valid @RequestBody UserOutputDTO userOutputDTO) {
+        return userService.printUser(userOutputDTO);
     }
 }

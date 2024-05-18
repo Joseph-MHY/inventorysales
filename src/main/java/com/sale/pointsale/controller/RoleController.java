@@ -1,9 +1,9 @@
 package com.sale.pointsale.controller;
 
-import com.sale.pointsale.models.DTO.input.RolesInputDTO;
-import com.sale.pointsale.models.DTO.output.RolesOutputDTO;
-import com.sale.pointsale.service.RoleService;
-import com.sale.pointsale.service.impl.RoleServiceImpl;
+import com.sale.pointsale.domain.Roles.RolesInputDTO;
+import com.sale.pointsale.domain.Roles.RolesOutputDTO;
+import com.sale.pointsale.domain.Roles.RoleServiceImpl;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -19,20 +19,20 @@ public class RoleController {
     private RoleServiceImpl roleService;
 
     @PostMapping("/save")
-    public ResponseEntity<RolesInputDTO> saveRole(@RequestBody RolesOutputDTO roleInputDTO) {
-        RolesInputDTO savedRole = roleService.saveRole(roleInputDTO);
-        return new ResponseEntity<>(savedRole, HttpStatus.CREATED);
+    @ResponseStatus(HttpStatus.CREATED)
+    public RolesInputDTO saveRole(@Valid @RequestBody RolesOutputDTO rolesOutputDTO) {
+        return roleService.saveRole(rolesOutputDTO);
     }
 
     @GetMapping("/all")
-    public ResponseEntity<List<RolesInputDTO>> getAllRoles() {
-        List<RolesInputDTO> roles = roleService.getAllRoles();
-        return new ResponseEntity<>(roles, HttpStatus.OK);
+    @ResponseStatus(HttpStatus.OK)
+    public List<RolesInputDTO> getAllRoles() {
+        return roleService.getAllRoles();
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<RolesInputDTO> getRoleById(@PathVariable Integer id) {
-        RolesInputDTO role = roleService.getRoleById(id);
-        return new ResponseEntity<>(role, HttpStatus.OK);
+    @ResponseStatus(HttpStatus.OK)
+    public RolesInputDTO getRoleById(@PathVariable Integer id) {
+        return roleService.getRoleById(id);
     }
 }
