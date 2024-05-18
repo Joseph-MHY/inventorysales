@@ -11,6 +11,7 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.math.BigDecimal;
 import java.sql.Date;
 
 @Service
@@ -43,12 +44,14 @@ public class UserServiceImpl implements UserService {
         // Mapear User a UserInputDTO
         UserInputDTO userInput = modelMapper.map(user, UserInputDTO.class);
 
+        userInput.setSalary(BigDecimal.valueOf(0.0));
+
         // Asignar los datos faltantes al UserInputDTO
         userInput.setTypeDocument(document);
         userInput.setNumDocument(userOutputDTO.getNumDocument());
-        userInput.setState(userOutputDTO.getState());
-        userInput.setTelephone(userOutputDTO.getTelephone());
-        userInput.setMobile(userOutputDTO.getMobile());
+        userInput.setState(false);
+        userInput.setTelephone(userOutputDTO.getTelephone() != null ? userOutputDTO.getTelephone() : null);
+        userInput.setMobile(userOutputDTO.getMobile() != null ? userOutputDTO.getMobile() : null);
         userInput.setRole(role);
         userInput.setCreationDate(new Date(System.currentTimeMillis()));
 

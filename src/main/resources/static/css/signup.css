@@ -9,7 +9,7 @@ body {
 }
 
 .registro-container {
-    width: 350px;
+    width: 40rem;
 }
 
 .registro-form {
@@ -23,10 +23,32 @@ body {
     text-align: center;
 }
 
+#idDocument{
+    width: 16.1rem;
+    margin-right: 0;
+}
+
+#gender{
+    width: 16rem;
+}
+
+.gender {
+    width: 9rem;
+}
+
+.num-document{
+    margin-left: -18px;
+}
+
 .input-row {
     display: flex;
     justify-content: space-between;
-    margin-bottom: 20px;
+    margin-top: 20px;
+    margin-left: 40px;
+    margin-right: 40px;
+}
+.left-row{
+    margin-right: 40px;
 }
 
 .input-group {
@@ -46,6 +68,11 @@ body {
     padding: 8px;
     border: 1px solid #ccc;
     border-radius: 4px;
+}
+
+#idRole {
+    margin-bottom: 20px;
+    width: 33.6rem;
 }
 
 .button-group {

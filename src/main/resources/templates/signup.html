@@ -11,70 +11,69 @@
     <form class="registro-form" action="#" method="post">
         <h2>Registro</h2>
         <div class="input-row">
-            <div class="input-group">
+            <div class="input-group left-row">
                 <label for="name">Nombre</label>
-                <input type="text" id="name" name="name" required>
+                <input type="text" id="name" name="name" required maxlength="50">
             </div>
-            <div class="input-group">
+            <div class="input-group right-row">
                 <label for="surname">Apellido</label>
-                <input type="text" id="surname" name="surname" required>
+                <input type="text" id="surname" name="surname" required maxlength="50">
             </div>
         </div>
         <div class="input-row">
-            <div class="input-group">
+            <div class="input-group left-row">
                 <label for="emailUser">Correo electrónico</label>
-                <input type="email" id="emailUser" name="emailUser" required>
+                <input type="email" id="emailUser" name="emailUser" required maxlength="80">
             </div>
-        </div>
-        <div class="input-row">
-            <div class="input-group">
+            <div class="input-group right-row gender">
                 <label for="gender">Género</label>
-                <select id="gender" name="gender">
-                    <option value="M">Masculino</option>
-                    <option value="F">Femenino</option>
+                <select id="gender" name="gender" required>
+                    <option value="null">Seleccionar</option>
+                    <option value="MASCULINO">Masculino</option>
+                    <option value="FEMENINO">Femenino</option>
+                    <option value="OTRO">Otro</option>
                 </select>
             </div>
-            <div class="input-group">
-                <label for="idTypeDocument">Tipo de Documento</label>
-                <!-- Aquí puedes cargar dinámicamente los tipos de documento desde la base de datos si lo deseas -->
-                <input type="text" id="idTypeDocument" name="idTypeDocument" required>
-            </div>
         </div>
         <div class="input-row">
-            <div class="input-group">
+            <div class="input-group left-row">
+                <label for="idDocument">Tipo de Documento:</label>
+                <select id="idDocument" name="idDocument" required>
+                    <option value="null">Seleccionar</option>
+                    <!-- Documentos se cargarán aquí dinámicamente -->
+                </select>
+            </div>
+            <div class="input-group num-document">
                 <label for="numDocument">Número de Documento</label>
-                <input type="text" id="numDocument" name="numDocument" required>
+                <input type="text" id="numDocument" name="numDocument" required maxlength="15">
             </div>
-            <div class="input-group">
+        </div>
+        <div class="input-row">
+            <div class="input-group left-row">
                 <label for="telephone">Teléfono</label>
-                <input type="text" id="telephone" name="telephone">
+                <input type="text" id="telephone" name="telephone" placeholder="(Opcional)" minlength="9" maxlength="9">
             </div>
-        </div>
-        <div class="input-row">
-            <div class="input-group">
+            <div class="input-group right-row">
                 <label for="mobile">Móvil</label>
-                <input type="text" id="mobile" name="mobile">
-            </div>
-            <div class="input-group">
-                <label for="username">Nombre de Usuario</label>
-                <input type="text" id="username" name="username" required>
+                <input type="text" id="mobile" name="mobile" placeholder="(Opcional)" minlength="9" maxlength="9">
             </div>
         </div>
         <div class="input-row">
-            <div class="input-group">
-                <label for="password">Contraseña</label>
-                <input type="password" id="password" name="password" required>
+            <div class="input-group left-row">
+                <label for="username">Nombre de Usuario</label>
+                <input type="text" id="username" name="username" required maxlength="40">
             </div>
+            <div class="input-group right-row">
+                <label for="password">Contraseña</label>
+                <input type="password" id="password" name="password" required minlength="5" maxlength="20">
+            </div>
+        </div>
+        <div class="input-row">
             <div class="input-group">
                 <label for="idRole">Rol</label>
-                <!-- Aquí puedes cargar dinámicamente los roles desde la base de datos si lo deseas -->
-                <input type="text" id="idRole" name="idRole" required>
-            </div>
-        </div>
-        <div class="input-row">
-            <div class="input-group">
-                <label for="creationDate">Fecha de Creación</label>
-                <input type="date" id="creationDate" name="creationDate" required>
+                <select id="idRole" name="idRole" required>
+                    <!-- Roles se cargarán aquí dinámicamente -->
+                </select>
             </div>
         </div>
         <div class="button-group">
@@ -83,5 +82,7 @@
         </div>
     </form>
 </div>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script th:src="@{/js/signup.js}"></script>
 </body>
 </html>

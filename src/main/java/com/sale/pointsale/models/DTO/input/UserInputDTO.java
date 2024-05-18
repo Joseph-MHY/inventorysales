@@ -1,7 +1,5 @@
 package com.sale.pointsale.models.DTO.input;
 
-import com.sale.pointsale.models.entity.IdentityDocuments;
-import com.sale.pointsale.models.entity.Roles;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

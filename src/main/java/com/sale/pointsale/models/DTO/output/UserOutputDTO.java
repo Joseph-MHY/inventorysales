@@ -25,8 +25,6 @@ public class UserOutputDTO {
     @Size(max = 50)
     private String surname;
 
-    @NotNull
-    @DecimalMin(value = "0.0", inclusive = false)
     private BigDecimal salary;
 
     @NotBlank
@@ -56,7 +54,7 @@ public class UserOutputDTO {
     private String mobile;
 
     @NotBlank
-    @Size(min = 2,max = 40)
+    @Size(max = 40)
     private String username;
 
     @NotBlank
@@ -64,7 +62,7 @@ public class UserOutputDTO {
     private String password;
 
     @NotNull
-    @PositiveOrZero(message = "El rol debe ser mayor o igual que cero")
+    @PositiveOrZero(message = "El rol debe existir y no puede ser negativo")
     private Integer idRole;
 
     private Date creationDate;
